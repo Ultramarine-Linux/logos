@@ -21,6 +21,9 @@ optimize:
 	xargs -L 1 -P `getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1` \
 	zopflipng -ym
 
+wsl-logo.ico:
+	magick icons/hicolor/256x256/apps/fedora-logo-icon.png pixmaps/fedora-logo.ico
+
 update-po:
 	@echo "updating pot files..."
 	sed -e "s/_name/name/g" $(XML).in > $(XML)
@@ -31,4 +34,4 @@ update-po:
 	#intltool-merge -x po $(XML).in $(XML)
 
 clean:
-	rm -f pixmaps/fedora-logo-sprite.png bootloader/fedora.icns bootloader/bootlogo_128.png bootloader/bootlogo_256.png
+	rm -f pixmaps/fedora-logo-sprite.png bootloader/fedora.icns bootloader/bootlogo_128.png bootloader/bootlogo_256.png pixmaps/fedora-logo.ico
